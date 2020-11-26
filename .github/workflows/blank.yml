@@ -33,6 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           ls -al
+          gh
           sudo apt update -q && sudo apt install git-all -y -q
           sudo apt install software-properties-common -y 
           sudo apt-get install dirmngr -y
