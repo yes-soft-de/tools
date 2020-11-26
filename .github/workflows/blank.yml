@@ -40,8 +40,8 @@ jobs:
           sudo apt-add-repository https://cli.github.com/packages 
           sudo apt update -q
           sudo apt install gh -y -q
-          sudo apt update -q -y
-          sudo apt upgrade -q -y
+          sudo apt update -q 
+          sudo apt upgrade -q
           # sudo gh auth login --with-token < $GHTOKEN
           # echo now you are connected to github
           sudo gh repo create $REPO  --template=$TEMPLATE --confirm --$ACCESS
