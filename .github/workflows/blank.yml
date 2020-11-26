@@ -32,4 +32,21 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-         sudo apt update
+          ls -al
+          sudo apt update -q && sudo apt install git-all -y -q
+          sudo apt install software-properties-common -y 
+          sudo apt-get install dirmngr -y
+          sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0
+          sudo apt-add-repository https://cli.github.com/packages 
+          sudo apt update -q
+          sudo apt install gh -y -q
+          sudo apt update -q -y
+          sudo apt upgrade -q -y
+          # sudo gh auth login --with-token < $GHTOKEN
+          # echo now you are connected to github
+          sudo gh repo create $REPO  --template=$TEMPLATE --confirm --$ACCESS
+          sudo gh repo clone $GHACCOUNT/$REPO
+          sed -i 's/ske/$REPO/g' web.yaml
+          sed -i 's/ske/$REPO/g' mysql.yaml
+          sed -i 's/ske/$REPO/g' namespace.yaml
+          gh pr create
