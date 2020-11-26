@@ -37,7 +37,7 @@ jobs:
           echo ${{ secrets.ghtoken }} > token.txt
           ls 
           gh auth login --with-token < token.txt
-          git delete origin 
+          git remote rm origin 
           
           git remote -v
           echo login is done
