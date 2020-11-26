@@ -37,8 +37,10 @@ jobs:
           echo ${{ secrets.ghtoken }} > token.txt
           ls 
           gh auth login --with-token < token.txt
+          git remote -v
           echo login is done
           gh repo create --repo $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
+          git remote -v
           echo repo create from template is done 
           gh repo clone $GHACCOUNT/$REPO
           echo repo clone is done 
