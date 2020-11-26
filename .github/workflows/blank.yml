@@ -36,11 +36,11 @@ jobs:
           source option 
           echo ${{ secrets.ghtoken }} > token.txt
           ls 
-          sudo gh auth login --with-token < token.txt
+          gh auth login --with-token < token.txt
           echo login is done
-          sudo gh repo create $REPO  --template=$TEMPLATE --confirm --$ACCESS
+          gh repo create $REPO  --template=$TEMPLATE --confirm --$ACCESS
           echo repo create from template is done 
-          sudo gh repo clone $GHACCOUNT/$REPO
+          gh repo clone $GHACCOUNT/$REPO
           echo repo clone is done 
           sed -i 's/ske/$REPO/g' web.yaml
           sed -i 's/ske/$REPO/g' mysql.yaml
