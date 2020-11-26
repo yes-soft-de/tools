@@ -37,11 +37,17 @@ jobs:
           echo ${{ secrets.ghtoken }} > token.txt
           ls 
           sudo gh auth login --with-token < token.txt
+          echo login is done
+          sudo gh repo create $REPO  --template=$TEMPLATE --confirm --$ACCESS
+          echo repo create from template is done 
           sudo gh repo clone $GHACCOUNT/$REPO
+          echo repo clone is done 
           sed -i 's/ske/$REPO/g' web.yaml
           sed -i 's/ske/$REPO/g' mysql.yaml
           sed -i 's/ske/$REPO/g' namespace.yaml
+          echo string replace is done 
           gh pr create
+          echo push is done 
       # sudo apt update -q && sudo apt install git-all -y -q
       #sudo apt install software-properties-common -y 
       #sudo apt-get install dirmngr -y
