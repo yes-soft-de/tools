@@ -38,7 +38,7 @@ jobs:
           ls 
           gh auth login --with-token < token.txt
           echo login is done
-          gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
+          gh repo create --repo $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
           echo repo create from template is done 
           gh repo clone $GHACCOUNT/$REPO
           echo repo clone is done 
