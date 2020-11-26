@@ -33,23 +33,23 @@ jobs:
       - name: Run a multi-line script
         run: |
           ls 
-          #sh option 
           source option 
-          #sudo apt update -q && sudo apt install git-all -y -q
-          #sudo apt install software-properties-common -y 
-          #sudo apt-get install dirmngr -y
-          #sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0
-          #sudo apt-add-repository https://cli.github.com/packages 
-          #sudo apt update -q
-          #sudo apt install gh -y -q
-          #sudo apt update -q 
-          #sudo apt upgrade -q
           sudo gh auth login --with-token < ${{ secrets.ghtoken }}
-          # echo now you are connected to github
-          
-          sudo gh repo create $REPO  --template=$TEMPLATE --confirm --$ACCESS
-          sudo gh repo clone $GHACCOUNT/$REPO
+                    sudo gh repo clone $GHACCOUNT/$REPO
           sed -i 's/ske/$REPO/g' web.yaml
           sed -i 's/ske/$REPO/g' mysql.yaml
           sed -i 's/ske/$REPO/g' namespace.yaml
           gh pr create
+      # sudo apt update -q && sudo apt install git-all -y -q
+      #sudo apt install software-properties-common -y 
+      #sudo apt-get install dirmngr -y
+      #sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0
+      #sudo apt-add-repository https://cli.github.com/packages 
+      #sudo apt update -q
+      #sudo apt install gh -y -q
+      #sudo apt update -q 
+      #sudo apt upgrade -q
+         
+      # echo now you are connected to github
+          
+
