@@ -33,8 +33,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           source option 
-          ls -al
-          gh
           #sudo apt update -q && sudo apt install git-all -y -q
           #sudo apt install software-properties-common -y 
           #sudo apt-get install dirmngr -y
@@ -44,7 +42,7 @@ jobs:
           #sudo apt install gh -y -q
           #sudo apt update -q 
           #sudo apt upgrade -q
-          # sudo gh auth login --with-token < $GHTOKEN
+          #sudo gh auth login --with-token < ${{ secrets.ghtoken }}
           # echo now you are connected to github
           
           sudo gh repo create $REPO  --template=$TEMPLATE --confirm --$ACCESS
