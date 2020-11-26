@@ -34,8 +34,10 @@ jobs:
         run: |
           ls 
           source option 
-          sudo gh auth login --with-token < ${{ secrets.ghtoken }}
-                    sudo gh repo clone $GHACCOUNT/$REPO
+          echo ${{ secrets.ghtoken }} > token.txt
+          ls 
+          sudo gh auth login --with-token < token.txt
+          sudo gh repo clone $GHACCOUNT/$REPO
           sed -i 's/ske/$REPO/g' web.yaml
           sed -i 's/ske/$REPO/g' mysql.yaml
           sed -i 's/ske/$REPO/g' namespace.yaml
