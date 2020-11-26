@@ -45,7 +45,10 @@ jobs:
           git remote -v
           echo repo create from template is done 
           gh repo clone $GHACCOUNT/$REPO
+          
           echo repo clone is done 
+          cd $REPO
+          ls -al 
           sed -i 's/ske/$REPO/g' web.yaml
           sed -i 's/ske/$REPO/g' mysql.yaml
           sed -i 's/ske/$REPO/g' namespace.yaml
