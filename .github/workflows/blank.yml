@@ -44,7 +44,7 @@ jobs:
           gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
           git remote -v
           echo repo create from template is done 
-          gh repo clone $GHACCOUNT/$REPO
+          https://github.com/$GHACCOUNT/$REPO.git
           
           echo repo clone is done 
           cd $REPO
