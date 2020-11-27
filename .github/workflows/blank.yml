@@ -46,7 +46,7 @@ jobs:
           git config --global user.name "aliomom"
           git config --global user.email "a.omom11115@gmail.com"
 
-
+          git add .
           git commit -m "First batch of files"
 
           echo repo create from template is done 
