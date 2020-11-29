@@ -50,7 +50,7 @@ jobs:
           #git commit -m "First batch of files"
 
           echo repo create from template is done 
-          git clone  git@github.com:aliomom/cdsdcsdc.git
+          git clone  git@github.com:$GHACCOUNT/$REPO.git
           
           echo repo clone is done 
           cd $REPO
