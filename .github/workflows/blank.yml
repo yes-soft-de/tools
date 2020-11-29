@@ -29,7 +29,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           ls 
-          source option && 
+          source option 
          
           echo ${{ secrets.ghtoken }} > token.txt
           ls 
@@ -59,7 +59,9 @@ jobs:
           sed -i 's/ske/$REPO/g' mysql.yaml
           sed -i 's/ske/$REPO/g' namespace.yaml
           echo string replace is done 
-          gh pr create
+          git commit
+          git push orgin master
+        
           echo push is done 
       # sudo apt update -q && sudo apt install git-all -y -q
       #sudo apt install software-properties-common -y 
