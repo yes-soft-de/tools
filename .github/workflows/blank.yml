@@ -48,6 +48,7 @@ jobs:
 
           git add .
           git commit -m "First batch of files"
+          git push 
 
           echo repo create from template is done 
           git clone  https://github.com/$GHACCOUNT/$REPO.git
