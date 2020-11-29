@@ -61,7 +61,7 @@ jobs:
           echo string replace is done 
           git commit -a -m "iit"
           git remote -v
-
+          git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
           git push -u origin main
         
           echo push is done 
