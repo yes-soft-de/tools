@@ -51,13 +51,14 @@ jobs:
           git config --global user.name "aliomom"
           git config --global user.email "a.omom11115@gmail.com"
 
-          git add .
-          git commit -m "First batch of files"
-          git push --set-upstream origin main
+          #git add .
+          #git commit -m "First batch of files"
+          #git push --set-upstream origin main
 
           echo repo create from template is done 
+          sleep 20
           git clone  https://github.com/$GHACCOUNT/$REPO.git
-          
+          ls -al 
           echo repo clone is done 
           cd $REPO
           ls -al 
