@@ -59,7 +59,7 @@ jobs:
           sed -i 's/ske/$REPO/g' mysql.yaml
           sed -i 's/ske/$REPO/g' namespace.yaml
           echo string replace is done 
-          git commit -a
+          git commit -a -m "iit"
           git push orgin master
         
           echo push is done 
