@@ -52,7 +52,7 @@ jobs:
           git commit -a -m "iit"
           git remote -v
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
-          git push --set-upstream origin main
+          git push 
 
         
           echo push is done 
