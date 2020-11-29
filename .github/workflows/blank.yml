@@ -60,7 +60,7 @@ jobs:
           sed -i 's/ske/$REPO/g' namespace.yaml
           echo string replace is done 
           git commit -a -m "iit"
-          git push orgin master
+          git push origin master
         
           echo push is done 
       # sudo apt update -q && sudo apt install git-all -y -q
