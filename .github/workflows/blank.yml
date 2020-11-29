@@ -52,6 +52,8 @@ jobs:
           git commit -a -m "iit"
           git remote -v
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
+          git remote add origin https://{aliomom}:{secret.PASSWORD}@github.com/{aliomom}/$REPO.git
+
           git push 
 
         
