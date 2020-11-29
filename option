@@ -1,4 +1,4 @@
-REPO=cdscsc223
+REPO=cdscsc223sasas
 GHACCOUNT=aliomom
 TEMPLATE="yes-soft-de/symfony-angular-skeleton"
 ACCESS=public
