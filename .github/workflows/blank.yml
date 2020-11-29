@@ -46,8 +46,7 @@ jobs:
 
           #git add .
           #git commit -m "First batch of files"
-          #git push --set-upstream origin main
-
+          
           echo repo create from template is done 
           sleep 20
           git clone  https://github.com/$GHACCOUNT/$REPO.git
@@ -62,7 +61,8 @@ jobs:
           git commit -a -m "iit"
           git remote -v
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
-          gh pr create --base=@{upstream} --head=@{push} -f
+          git push --set-upstream origin main
+
         
           echo push is done 
       # sudo apt update -q && sudo apt install git-all -y -q
