@@ -61,8 +61,8 @@ jobs:
           echo string replace is done 
           git commit -a -m "iit"
           git remote -v
-          git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
-          git push -u origin main
+          #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
+          gh pr create -f 
         
           echo push is done 
       # sudo apt update -q && sudo apt install git-all -y -q
