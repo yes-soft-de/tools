@@ -55,7 +55,7 @@ jobs:
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
           git remote add origin https://{aliomom}:{secret.PASSWORD}@github.com/{aliomom}/$REPO.git
 
-          git push 
+          git push --set-upstream origin main
 
         
           echo push is done 
