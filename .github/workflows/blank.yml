@@ -53,7 +53,7 @@ jobs:
           git remote -v
           git remote rm origin 
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
-          git remote add origin https://{aliomom}:{secret.PASSWORD}@github.com/{aliomom}/$REPO.git
+          git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
 
           git push --set-upstream origin main
 
