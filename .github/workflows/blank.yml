@@ -60,9 +60,9 @@ jobs:
           sed -i 's/ske/$REPO/g' namespace.yaml
           echo string replace is done 
           git commit -a -m "iit"
-          hub auth ${{ secrets.ghtoken }} 
-          hub push 
-          #git push origin main
+          git remote -v
+
+          git push -u origin main
         
           echo push is done 
       # sudo apt update -q && sudo apt install git-all -y -q
