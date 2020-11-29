@@ -45,9 +45,9 @@ jobs:
           echo repo clone is done 
           cd $REPO
           ls -al 
-          sed -i 's/ske/$REPO/g' web.yaml
-          sed -i 's/ske/$REPO/g' mysql.yaml
-          sed -i 's/ske/$REPO/g' namespace.yaml
+          sed -i "s/ske/$REPO/g" web.yaml
+          sed -i "s/ske/$REPO/g" mysql.yaml
+          sed -i "s/ske/$REPO/g" namespace.yaml
           echo string replace is done 
           git commit -a -m "iit"
           git remote -v
