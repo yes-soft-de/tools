@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
+#jobs:
   build:
     runs-on: ubuntu-latest
 
@@ -19,32 +19,16 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          ls 
           source option 
-         
           echo ${{ secrets.ghtoken }} > token.txt
-          ls 
           gh auth login --with-token < token.txt
           git remote rm origin 
-          
-          git remote -v
-          echo login is done
           gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
           git remote rm origin 
-          git remote -v
           git config --global user.name "aliomom"
-          git config --global user.email "a.omom11115@gmail.com"
-
-          #git add .
-          #git commit -m "First batch of files"
-          
-          echo repo create from template is done 
+          git config --global user.email "a.omom11115@gmail.com
           sleep 20
           git clone  https://github.com/$GHACCOUNT/$REPO.git
-          ls -al 
-          echo repo clone is done 
-          cd $REPO
-          ls -al 
           sed -i "s/ske/$REPO/g" web.yaml
           sed -i "s/ske/$REPO/g" mysql.yaml
           sed -i "s/ske/$REPO/g" namespace.yaml
@@ -56,19 +40,15 @@ jobs:
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
 
           git push --set-upstream origin main
+#      - uses: actions/checkout@v2
+#        with:
+ #        repository: yes-soft-de/environment-tools
+ #        token: ${{ secrets.ENVGHTOKEN }}
+  #    - run: |
 
-        
-          echo push is done 
-      # sudo apt update -q && sudo apt install git-all -y -q
-      #sudo apt install software-properties-common -y 
-      #sudo apt-get install dirmngr -y
-      #sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0
-      #sudo apt-add-repository https://cli.github.com/packages 
-      #sudo apt update -q
-      #sudo apt install gh -y -q
-      #sudo apt update -q 
-      #sudo apt upgrade -q
-         
-      # echo now you are connected to github
-          
+ #        mkdir $REPO && cd $REPO
+    #     touch .env
+   #      touch .htaccess
+    #     mkdir jwt && cd jwt
+    #     ssh-keygen -t rsa -b 4096  
 
