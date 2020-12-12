@@ -22,7 +22,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           source option 
-          $REPOENV=$REPO
+          $REPOENV = $REPO
           echo ${{ secrets.ghtoken }} > token.txt
           gh auth login --with-token < token.txt
           git remote rm origin 
