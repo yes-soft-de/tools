@@ -50,7 +50,7 @@ jobs:
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
 
-         mkdir $REPO && cd $REPO
+         mkdir "$REPO" && cd "$REPO"
          echo  ${{ secrets.ENV }} > .env
          echo  ${{ secrets.HTACCESS }} > .htaccess
          mkdir jwt && cd jwt
