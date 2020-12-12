@@ -16,7 +16,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
       - name: Run a multi-line script
         run: |
           source option 
