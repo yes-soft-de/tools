@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-#jobs:
+jobs:
   build:
     runs-on: ubuntu-latest
 
@@ -47,9 +47,11 @@ on:
       - run: |
 
          mkdir  $REPO && cd $REPO
-         echo  ${{ secrets.env }} > .env
-         echo  ${{ secrets.htaccess }} > .htaccess
+         echo  ${{ secrets.ENV }} > .env
+         echo  ${{ secrets.HTACCESS }} > .htaccess
          mkdir jwt && cd jwt
          openssl genpkey -out private.pem -aes256 -passout ${{ secrets.PASS }} -algorithm rsa -pkeyopt rsa_keygen_bits:4096 
          openssl pkey -passin ${{ secrets.PASS }} -in private.pem -out public.pem -pubout
-
+         git commit -a -m "add .env and .htacces and jwt"
+         git push 
+         
