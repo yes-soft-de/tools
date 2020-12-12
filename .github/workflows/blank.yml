@@ -25,7 +25,7 @@ jobs:
           gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
           git remote rm origin 
           git config --global user.name "aliomom"
-          git config --global user.email "a.omom11115@gmail.com
+          git config --global user.email "a.omom11115@gmail.com"
           sleep 20
           git clone  https://github.com/$GHACCOUNT/$REPO.git
           sed -i "s/ske/$REPO/g" web.yaml
