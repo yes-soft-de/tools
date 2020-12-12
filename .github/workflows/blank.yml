@@ -49,6 +49,7 @@ jobs:
          repository: yes-soft-de/environment-tools
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
+         source option 
 
          mkdir -p $REPO && cd $REPO
          echo  ${{ secrets.ENV }} > .env
