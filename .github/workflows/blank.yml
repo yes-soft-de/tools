@@ -23,10 +23,13 @@ jobs:
           gh auth login --with-token < token.txt
           git remote rm origin 
           gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
+          echo repo is created 
           git remote rm origin 
           git config --global user.name "aliomom"
           git config --global user.email "a.omom11115@gmail.com"
-          sleep 30
+          echo git config is done 
+        
+          sleep 40
           git clone  https://github.com/$GHACCOUNT/$REPO.git
           sed -i "s/ske/$REPO/g" web.yaml
           sed -i "s/ske/$REPO/g" mysql.yaml
