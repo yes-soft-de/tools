@@ -28,9 +28,11 @@ jobs:
           git config --global user.name "aliomom"
           git config --global user.email "a.omom11115@gmail.com"
           echo git config is done 
+          
         
           sleep 40
           git clone  https://github.com/$GHACCOUNT/$REPO.git
+          cd $REPO
           sed -i "s/ske/$REPO/g" web.yaml
           sed -i "s/ske/$REPO/g" mysql.yaml
           sed -i "s/ske/$REPO/g" namespace.yaml
