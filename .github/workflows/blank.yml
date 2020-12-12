@@ -54,8 +54,8 @@ jobs:
          echo  ${{ secrets.ENV }} > .env
          echo  ${{ secrets.HTACCESS }} > .htaccess
          mkdir jwt && cd jwt
-         openssl genpkey -out private.pem -aes256 -passout pass:${{ secrets.PASS }} -algorithm rsa -pkeyopt rsa_keygen_bits:4096 
-         openssl pkey -passin pass:${{ secrets.PASS }} -in private.pem -out public.pem -pubout
+         openssl genpkey -out private.pem -aes256 -pass pass:${{ secrets.PASS }} -algorithm rsa -pkeyopt rsa_keygen_bits:4096 
+         openssl pkey -pass pass:${{ secrets.PASS }} -in private.pem -out public.pem -pubout
          git commit -a -m "add .env and .htacces and jwt"
          ls -al 
          cd .. && ls -al 
