@@ -6,6 +6,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    
 
   workflow_dispatch:
 
@@ -13,12 +14,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      repo: repoenv
 
     steps:
       - uses: actions/checkout@v2
       - name: Run a multi-line script
         run: |
           source option 
+          $repoenv=$REPO
           echo ${{ secrets.ghtoken }} > token.txt
           gh auth login --with-token < token.txt
           git remote rm origin 
@@ -49,9 +53,9 @@ jobs:
          repository: yes-soft-de/environment-tools
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
-         source option 
+       
 
-         mkdir -p $REPO && cd $REPO
+         mkdir -p $repoenv && cd $repoenv
          echo  ${{ secrets.ENV }} > .env
          echo  ${{ secrets.HTACCESS }} > .htaccess
          mkdir jwt && cd jwt
