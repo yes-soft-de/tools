@@ -40,15 +40,16 @@ on:
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
 
           git push --set-upstream origin main
-#      - uses: actions/checkout@v2
-#        with:
- #        repository: yes-soft-de/environment-tools
- #        token: ${{ secrets.ENVGHTOKEN }}
-  #    - run: |
+      - uses: actions/checkout@v2
+        with:
+         repository: yes-soft-de/environment-tools
+         token: ${{ secrets.ENVGHTOKEN }}
+      - run: |
 
- #        mkdir $REPO && cd $REPO
-    #     touch .env
-   #      touch .htaccess
-    #     mkdir jwt && cd jwt
-    #     ssh-keygen -t rsa -b 4096  
+         mkdir  $REPO && cd $REPO
+         touch .env
+         touch .htaccess
+         mkdir jwt && cd jwt
+         openssl genpkey -out private.pem -aes256 -passout ${{ secrets.PASS }} -algorithm rsa -pkeyopt rsa_keygen_bits:4096 
+         openssl pkey -passin ${{ secrets.PASS }} -in private.pem -out public.pem -pubout
 
