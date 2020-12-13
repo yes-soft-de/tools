@@ -38,7 +38,7 @@ jobs:
           echo git config is done 
           
         
-          sleep 40
+          sleep 15
           git clone  https://github.com/$GHACCOUNT/$REPO.git
           cd $REPO
           sed -i "s/ske/$REPO/g" web.yaml
