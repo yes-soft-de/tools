@@ -75,10 +75,13 @@ jobs:
          mkdir jwt && cd jwt
          openssl genpkey -out private.pem -aes256 -pass pass:${{ secrets.PASS }} -algorithm rsa -pkeyopt rsa_keygen_bits:4096 
          openssl pkey -passin pass:${{ secrets.PASS }} -in private.pem -out public.pem -pubout
+         ls -al 
+         cd .. && ls -al
+         git add .
          git commit -a -m "add .env and .htacces and jwt"
          
-         ls -al 
-         cd .. && ls -al 
-         git add .
+
+          
+         
          git push 
          
