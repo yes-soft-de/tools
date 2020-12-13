@@ -57,9 +57,10 @@ jobs:
          repository: yes-soft-de/environment-tools
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
+         echo ${REP}
        
 
-         mkdir -p $repoenv && cd $repoenv
+         mkdir -p ${REP} && cd ${REP}
          echo  ${{ secrets.ENV }} > .env
          echo  ${{ secrets.HTACCESS }} > .htaccess
          mkdir jwt && cd jwt
