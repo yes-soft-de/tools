@@ -42,7 +42,7 @@ jobs:
           echo repo is created 
           git remote rm origin 
           echo ${GH_USERNAME}
-          git config --global user.name ${{ github.event.schedule.user.login }}
+          git config --global user.name ${{github.actor}}
           git config --global user.email "yescloud@gmail.com"
           echo git config is done 
           
