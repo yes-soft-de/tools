@@ -15,8 +15,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.step1.outputs.test }}
+   
  
 
     steps:
@@ -31,8 +30,9 @@ jobs:
        
         run: |
           source option 
-          echo "::set-env name=REP::$REPO"
-          echo $REP
+          echo "RIPP=$REPO" >> $GITHUB_ENV
+          #echo "::set-env name=REP::$REPO"
+          echo $RIPP
           fewf
           echo ${{ secrets.ghtoken }} > token.txt
           gh auth login --with-token < token.txt
