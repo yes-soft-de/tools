@@ -25,7 +25,8 @@ jobs:
         run: |
           source option 
           echo ${REP}
-          echo $REPO > ${REP}
+          echo $REPO > ${REPOENV}
+          echo ${REPOENV}
 
           echo ${{ secrets.ghtoken }} > token.txt
           gh auth login --with-token < token.txt
