@@ -20,9 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run a multi-line script
+        env: 
+          REP:  123
         run: |
           source option 
-          ${REPOENV} = $REPO
+          ${REP} = $REPO
           echo ${{ secrets.ghtoken }} > token.txt
           gh auth login --with-token < token.txt
           git remote rm origin 
