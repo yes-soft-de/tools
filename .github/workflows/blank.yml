@@ -15,19 +15,25 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
  
 
     steps:
       - uses: actions/checkout@v2
       - name: Run a multi-line script
+      
+        
+        
+        
         env: 
           REP: 123
+       
         run: |
           source option 
-          echo ${REP}
-          echo $REPO > ${REPOENV}
-          echo ${REPOENV}
-
+          echo "::set-env name=REP::$REPO"
+          echo $REP
+          fewf
           echo ${{ secrets.ghtoken }} > token.txt
           gh auth login --with-token < token.txt
           git remote rm origin 
@@ -59,7 +65,7 @@ jobs:
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
          echo the repo is 
-         echo ${REP}
+         echo ${env.REP}
        
 
          mkdir -p ${REP} && cd ${REP}
