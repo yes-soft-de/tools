@@ -30,10 +30,10 @@ jobs:
        
         run: |
           source option 
-          echo "RIPP=$REPO" >> $GITHUB_ENV
+          echo "RIPP=${REPO}" >> $GITHUB_ENV
           #echo "::set-env name=REP::$REPO"
           echo $RIPP
-          fewf
+          
           echo ${{ secrets.ghtoken }} > token.txt
           gh auth login --with-token < token.txt
           git remote rm origin 
@@ -68,7 +68,7 @@ jobs:
          echo ${env.REP}
        
 
-         mkdir -p ${REP} && cd ${REP}
+         mkdir -p ${RIPP} && cd ${RIPP}
          echo  ${{ secrets.ENV }} > .env
          echo  ${{ secrets.HTACCESS }} > .htaccess
          mkdir jwt && cd jwt
