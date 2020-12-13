@@ -57,6 +57,7 @@ jobs:
          repository: yes-soft-de/environment-tools
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
+         echo the repo is 
          echo ${REP}
        
 
