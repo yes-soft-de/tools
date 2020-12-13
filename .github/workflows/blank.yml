@@ -65,7 +65,7 @@ jobs:
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
          echo the repo is 
-         echo ${env.REP}
+         echo ${RIPP}
        
 
          mkdir -p ${RIPP} && cd ${RIPP}
