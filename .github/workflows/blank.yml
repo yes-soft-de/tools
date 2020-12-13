@@ -24,7 +24,7 @@ jobs:
           REP:  123
         run: |
           source option 
-          ${REP} = $REPO
+          ${REP} = "$REPO"
           echo ${{ secrets.ghtoken }} > token.txt
           gh auth login --with-token < token.txt
           git remote rm origin 
