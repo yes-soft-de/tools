@@ -1,4 +1,4 @@
-REPO=255kklklknnn
+REPO=new223
 GHACCOUNT=aliomom
-TEMPLATE="yes-soft-de/symfony-angular-skeleton"
+TEMPLATE="yes-soft-de/symfony-app-skeleton"
 ACCESS=public
