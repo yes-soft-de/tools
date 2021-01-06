@@ -54,7 +54,7 @@ jobs:
           git add .
           git commit -a -m "iit"
           #git push --set-upstream origin main
-          git push origin main
+          git push origin HEAD:main
       - uses: actions/checkout@v2
         with:
          repository: yes-soft-de/environment-tools
