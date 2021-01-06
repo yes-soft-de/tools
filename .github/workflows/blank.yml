@@ -41,15 +41,17 @@ jobs:
           sleep 15
           git clone  https://github.com/$GHACCOUNT/$REPO.git
           cd $REPO/k8s
-          sed -i "s/ske/FORREPLACE1235/g" server.yaml
-          sed -i "s/ske/FORREPLACE1235/g" mysql.yaml
-          sed -i "s/ske/FORREPLACE1235/g" namespace.yaml
+          sed -i "s/FORREPLACE1235/$REPO/g" server.yaml
+          sed -i "s/FORREPLACE1235/$REPO/g" mysql.yaml
+          sed -i "s/FORREPLACE1235/$REPO/g" namespace.yaml
+          
           echo string replace is done 
-          git commit -a -m "iit"
+         
           git remote -v
           git remote rm origin 
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
+          git commit -a -m "iit"
           git push --set-upstream origin main
       - uses: actions/checkout@v2
         with:
