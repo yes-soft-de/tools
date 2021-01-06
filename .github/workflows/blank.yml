@@ -40,15 +40,21 @@ jobs:
           echo git config is done 
           sleep 15
           git clone  https://github.com/$GHACCOUNT/$REPO.git
+          echo git clone is done
           cd $REPO/k8s
+          echo cd is done 
           sed -i "s|FORREPLACE1235|$REPO|g" server.yaml
+          echo sed 1 is done
           sed -i "s|FORREPLACE1235|$REPO|g" mysql.yaml
+          echo sed 2 is done
           sed -i "s|FORREPLACE1235|$REPO|g" namespace.yaml
+          echo sed 3 is done 
           
           echo string replace is done 
          
           git remote -v
           git remote rm origin 
+          echo remote remove is done
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
           git add .
