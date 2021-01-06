@@ -21,20 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run a multi-line script
-      
-        
-        
-        
         env: 
           REP: 123
-       
         run: |
-          
           source option 
           echo "RIPP=${REPO}" >> $GITHUB_ENV
           #echo "::set-env name=REP::$REPO"
           echo $RIPP
-          
           echo ${{ secrets.ghtoken }} > token.txt
           gh auth login --with-token < token.txt
           git remote rm origin 
@@ -45,21 +38,18 @@ jobs:
           git config --global user.name ${{github.actor}}
           git config --global user.email "yescloud@gmail.com"
           echo git config is done 
-          
-        
           sleep 15
           git clone  https://github.com/$GHACCOUNT/$REPO.git
-          cd $REPO
-          sed -i "s/ske/$REPO/g" web.yaml
-          sed -i "s/ske/$REPO/g" mysql.yaml
-          sed -i "s/ske/$REPO/g" namespace.yaml
+          cd $REPO/k8s
+          sed -i "s/ske/FORREPLACE1235/g" server.yaml
+          sed -i "s/ske/FORREPLACE1235/g" mysql.yaml
+          sed -i "s/ske/FORREPLACE1235/g" namespace.yaml
           echo string replace is done 
           git commit -a -m "iit"
           git remote -v
           git remote rm origin 
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
-
           git push --set-upstream origin main
       - uses: actions/checkout@v2
         with:
@@ -68,8 +58,6 @@ jobs:
       - run: |
          echo the repo is 
          echo ${RIPP}
-       
-
          mkdir -p ${RIPP} && cd ${RIPP}
          ls -al
          echo  ${{ secrets.ENV }} > .env
@@ -81,9 +69,5 @@ jobs:
          cd .. && ls -al
          git add .
          git commit -a -m "add .env and .htacces and jwt"
-         
-
-          
-         
          git push 
          
