@@ -53,8 +53,10 @@ jobs:
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
           git add .
           git commit -a -m "iit"
-          #git push --set-upstream origin main
-          git push origin HEAD:main
+          #git push --set-upstream origin symfony-app-skeleton
+
+          git push origin HEAD:symfony-app-skeleton
+
       - uses: actions/checkout@v2
         with:
          repository: yes-soft-de/environment-tools
