@@ -41,9 +41,9 @@ jobs:
           sleep 15
           git clone  https://github.com/$GHACCOUNT/$REPO.git
           cd $REPO/k8s
-          sed -i 's/FORREPLACE1235/$REPO/g' server.yaml
-          sed -i 's/FORREPLACE1235/$REPO/g' mysql.yaml
-          sed -i 's/FORREPLACE1235/$REPO/g' namespace.yaml
+          sed -i "s|FORREPLACE1235|$REPO|g" server.yaml
+          sed -i "s|FORREPLACE1235|$REPO|g" mysql.yaml
+          sed -i "s|FORREPLACE1235|$REPO|g" namespace.yaml
           
           echo string replace is done 
          
