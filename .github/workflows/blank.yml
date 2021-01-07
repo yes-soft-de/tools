@@ -74,9 +74,9 @@ jobs:
          
          echo creating new directory is done
          ls -al
-         echo ${{ secrets.ENV }} > .env
+         echo "${{ secrets.ENV }}" > .env
          echo create .env
-         echo ${{ secrets.HTACCESS }} > .htaccess
+         echo "${{ secrets.HTACCESS }}" > .htaccess
          echo create .htaccess
          echo creating .env and .htaccess is done  
          
