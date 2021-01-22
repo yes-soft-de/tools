@@ -31,6 +31,7 @@ jobs:
           echo ${{ secrets.ghtoken }} > token.txt
           gh auth login --with-token < token.txt
           git remote rm origin 
+          #change GHACCOUNT to yessoft when u finish 
           gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
           echo repo is created 
           git remote rm origin 
