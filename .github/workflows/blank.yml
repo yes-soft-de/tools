@@ -45,12 +45,16 @@ jobs:
           cd $REPO/k8s
           echo cd is done 
           sed -i "s|FORREPLACE1235|$REPO|g" server.yaml
+          sed -i "s|FORREPLACE1235|$REPO|g" secret.yaml
           echo sed 1 is done
           sed -i "s|FORREPLACE1235|$REPO|g" mysql.yaml
           echo sed 2 is done
           sed -i "s|FORREPLACE1235|$REPO|g" namespace.yaml
+          sed -i "s|FORREPLACE1235|$REPO|g" configmap.yaml
           echo sed 3 is done 
-          
+          cd .. 
+          sed -i "s|$PROJECT_ID|${{secret.GKE_PROJECT}}|g" Dockerfile
+          sed -i "s|$SECRETNAME|${REPO}sec|g" Dockerfile
           echo string replace is done 
          
           git remote -v
