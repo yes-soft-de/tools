@@ -43,7 +43,7 @@ jobs:
           gh auth login --with-token < token.txt
           git remote rm origin 
           #change GHACCOUNT to yessoft when u finish 
-          gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
+          #gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
           echo repo is created 
           git remote rm origin 
           echo ${GH_USERNAME}
@@ -130,15 +130,7 @@ jobs:
          git add .
          git commit -a -m "add .env and .htacces and jwt"
          git push 
-         cd .. 
-         ls -al 
-         cd ..
-         ls -al
-         cd .github
-         ls -al
-         
-         cd ..
-         ls -al
+
          
       - uses: actions/checkout@v2
        
@@ -149,6 +141,7 @@ jobs:
           service_account_email: ${{ secrets.service_account_email }}
           project_id: ${{ secrets.GKE_PROJECT }}
           export_default_credentials: true
+          credentials_file_path:  ../
 
       - name: Use gcloud CLI
         run: gcloud info
