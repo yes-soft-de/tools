@@ -144,7 +144,6 @@ jobs:
         with:
           
           service_account_key: ${{ secrets.GCP_SA_KEY }}
-          service_account_email: ${{ secrets.service_account_email }}
           project_id: ${{ secrets.GKE_PROJECT }}
           export_default_credentials: true
 
