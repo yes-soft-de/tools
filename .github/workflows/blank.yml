@@ -150,6 +150,7 @@ jobs:
           
 
       - run: |
+         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}sec
       - uses: actions/checkout@v2
       - uses: google-github-actions/setup-gcloud@master
