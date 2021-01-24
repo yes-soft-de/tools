@@ -150,7 +150,7 @@ jobs:
           
 
       - run: |
-         echo ${{ secrets.keyfile }} > key.json
+         echo "${{ secrets.keyfile }}" > key.json
          gcloud auth activate-service-account action@pc-api-6479467557629758909-343.iam.gserviceaccount.com --key-file=key.json
          # gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}sec
