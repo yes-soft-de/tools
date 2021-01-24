@@ -145,7 +145,7 @@ jobs:
           service_account_key: ${{ secrets.GKE_SA_KEY }}
           service_account_email: ${{ secrets.service_account_email }}
           project_id: ${{ secrets.GKE_PROJECT }}
-          export_default_credentials: false
+          export_default_credentials: true
 
       - name: Use gcloud CLI
         run: gcloud info
