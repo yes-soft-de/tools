@@ -140,12 +140,10 @@ jobs:
          
 
        
-      - uses: google-github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@v0.2.0
         with:
-          
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          service_account_key: ${{ secrets.GKE_SA_KEY }}
           project_id: ${{ secrets.GKE_PROJECT }}
-          export_default_credentials: true
 
 
       - run: |
