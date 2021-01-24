@@ -130,6 +130,12 @@ jobs:
          git add .
          git commit -a -m "add .env and .htacces and jwt"
          git push 
+         cd .. 
+         ls -al 
+         cd ..
+         ls -al
+         cd..
+         ls -al
          
       - uses: actions/checkout@v2
        
