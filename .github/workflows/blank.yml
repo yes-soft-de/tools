@@ -139,5 +139,5 @@ jobs:
           project_id: ${{ secrets.GKE_PROJECT }}
           export_default_credentials: true
 
-      - run: |-
-          gcloud --quiet auth configure-docker
+      - name: Use gcloud CLI
+        run: gcloud info
