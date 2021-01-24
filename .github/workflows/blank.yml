@@ -131,4 +131,5 @@ jobs:
           export_default_credentials: true
 
       - run: |-
+          gcloud --quiet auth configure-docker
           ls 
