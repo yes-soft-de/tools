@@ -122,7 +122,11 @@ jobs:
            echo create .env
            echo "${{ secrets.HTACCESS }}" > .htaccess
            echo create .htaccess
-           echo creating .env and .htaccess is done  
+           echo creating .env and .htaccess is done 
+           cat > Dockerfile <<EOF
+           >FROM alpine:3.7
+           >COPY . .
+           >EOF 
          fi
          mkdir jwt && cd jwt
          echo creating new jwt dir
