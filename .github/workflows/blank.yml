@@ -143,17 +143,17 @@ jobs:
       - uses: google-github-actions/setup-gcloud@master
         with:
           
-         
+          
           service_account_email: ${{ secrets.service_account_email }}
           project_id: ${{ secrets.GKE_PROJECT }}
           export_default_credentials: true
           
 
       - run: |
-         echo "${{ secrets.keyfile }}" > key.json
+         echo "${{ secrets.keyfile }}" > "key.json"
          echo file is generated
  
-         gcloud auth activate-service-account action@pc-api-6479467557629758909-343.iam.gserviceaccount.com --key-file=${{ secrets.keyfile }}
+         gcloud auth activate-service-account action@pc-api-6479467557629758909-343.iam.gserviceaccount.com --key-file=key.json
          # gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}sec
       - uses: actions/checkout@v2
