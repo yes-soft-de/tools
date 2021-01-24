@@ -56,7 +56,8 @@ jobs:
           sed -i "s|FORREPLACE1235|$REPO|g" configmap.yaml
           echo sed 3 is done 
           cd .. 
-          sed -i "s|$PROJECT_ID|${{secret.GKE_PROJECT}}|g" Dockerfile
+          project=${{secret.GKE_PROJECT}}
+          sed -i "s|$PROJECT_ID|$project|g" Dockerfile
           sed -i "s|$SECRETNAME|${REPO}sec|g" Dockerfile
 
 
