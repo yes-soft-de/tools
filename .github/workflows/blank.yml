@@ -72,16 +72,16 @@ jobs:
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
           ls -al
-          if (($envpriv=="true"))
+          echo ok 
+          sed -i "s|$FORREPLACE123|$REPO|g" .env
+          cd public
+          sed -i "s|$FORREPLACE123|$REPO|g" .htaccess
+          echo $envpriv
+          if (($envpriv=='true'))
           than
           rm -rf .htaccess
           cd ..
           rm -rf .env 
-          else
-            echo ok 
-            sed -i "s|$FORREPLACE123|$REPO|g" .env
-            cd public
-            sed -i "s|$FORREPLACE123|$REPO|g" .htaccess
           fi 
           git add .
           git commit -a -m "iit"
