@@ -73,9 +73,9 @@ jobs:
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
           ls -al
           echo ok 
-          sed -i "s|$FORREPLACE123|$REPO|g" .env
+          sed -i "s|FORREPLACE123|$REPO|g" .env
           cd public
-          sed -i "s|$FORREPLACE123|$REPO|g" .htaccess
+          sed -i "s|FORREPLACE123|$REPO|g" .htaccess
           echo $envpriv
           if (($envpriv=='true'))
           than
