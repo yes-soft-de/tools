@@ -71,7 +71,7 @@ jobs:
           echo remote remove is done
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
-          if ($envpriv==true)
+          if (($envpriv=="true"))
           than
             rm -rf .htaccess
             cd ..
