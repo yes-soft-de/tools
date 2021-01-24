@@ -57,6 +57,7 @@ jobs:
           echo sed 3 is done 
           cd .. 
           project=${{secrets.GKE_PROJECT}}
+          echo $project
           sed -i "s|$PROJECT_ID|$project|g" Dockerfile
           sed -i "s|$SECRETNAME|${REPO}sec|g" Dockerfile
 
