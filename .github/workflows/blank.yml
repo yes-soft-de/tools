@@ -150,7 +150,8 @@ jobs:
           
 
       - run: |
-         echo "${{ secrets.keyfile }}" > "key.json"
+         cat <<< "${{ secrets.keyfile }}" > "key.json"
+         #echo "${{ secrets.keyfile }}" > "key.json"
          echo file is generated
  
          gcloud auth activate-service-account action@pc-api-6479467557629758909-343.iam.gserviceaccount.com --key-file=key.json
