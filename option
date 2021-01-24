@@ -1,5 +1,5 @@
 envpriv=true
-REPO=123vsdfvscdsc
+REPO=123vsdfvscdscscdsc
 GHACCOUNT=aliomom
 TEMPLATE="yes-soft-de/symfony-app-skeleton"
 ACCESS=public
