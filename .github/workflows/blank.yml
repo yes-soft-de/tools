@@ -101,8 +101,8 @@ jobs:
          mkdir -p ${RIPP} && cd ${RIPP}
          
          echo creating new directory is done
-         if ($envpriv==true)
-         than
+         if ($envpriv=='true')
+         then
            echo "${{ secrets.ENV }}" > .env
            echo create .env
            echo "${{ secrets.HTACCESS }}" > .htaccess
