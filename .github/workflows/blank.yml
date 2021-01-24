@@ -73,13 +73,13 @@ jobs:
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
           if (($envpriv=="true"))
           than
-            rm -rf .htaccess
-            cd ..
-            rm -rf .env 
+          rm -rf .htaccess
+          cd ..
+          rm -rf .env 
           else
-            sed -i "s|$FORREPLACE123|$REPO|g" .env
-            cd public
-            sed -i "s|$FORREPLACE123|$REPO|g" .htaccess
+          sed -i "s|$FORREPLACE123|$REPO|g" .env
+          cd public
+          sed -i "s|$FORREPLACE123|$REPO|g" .htaccess
           fi 
           git add .
           git commit -a -m "iit"
