@@ -77,11 +77,11 @@ jobs:
           cd public
           sed -i "s|FORREPLACE123|$REPO|g" .htaccess
           echo $envpriv
-          if (($envpriv=='true'))
-          than
-          rm -rf .htaccess
-          cd ..
-          rm -rf .env 
+          if [[ $envpriv=='true' ]]
+          then
+            rm -rf .htaccess
+            cd ..
+            rm -rf .env 
           fi 
           git add .
           git commit -a -m "iit"
