@@ -94,11 +94,12 @@ jobs:
           git add .
           git commit -a -m "iit"
           #git push --set-upstream origin symfony-app-skeleton
+          
 
           
 
           git push origin HEAD:symfony-app-skeleton
-
+          cd .. 
       - uses: actions/checkout@v2
         with:
          repository: yes-soft-de/environment-tools
