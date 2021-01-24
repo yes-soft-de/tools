@@ -26,6 +26,7 @@ jobs:
         run: |
           source option 
           echo "RIPP=${REPO}" >> $GITHUB_ENV
+          echo "envpriv=${envpriv}" >> $GITHUB_ENV
           #echo "::set-env name=REP::$REPO"
           echo $RIPP
           echo ${{ secrets.ghtoken }} > token.txt
@@ -55,6 +56,10 @@ jobs:
           cd .. 
           sed -i "s|$PROJECT_ID|${{secret.GKE_PROJECT}}|g" Dockerfile
           sed -i "s|$SECRETNAME|${REPO}sec|g" Dockerfile
+
+
+          
+
           echo string replace is done 
          
           git remote -v
@@ -62,9 +67,21 @@ jobs:
           echo remote remove is done
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
+          if ($envpriv==true)
+          than
+            rm -rf .htaccess
+            cd ..
+            rm -rf .env 
+          else
+            sed -i "s|$FORREPLACE123|$REPO|g" .env
+            cd public
+            sed -i "s|$FORREPLACE123|$REPO|g" .htaccess
+          fi 
           git add .
           git commit -a -m "iit"
           #git push --set-upstream origin symfony-app-skeleton
+
+          
 
           git push origin HEAD:symfony-app-skeleton
 
@@ -73,18 +90,19 @@ jobs:
          repository: yes-soft-de/environment-tools
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
-         echo the repo is 
-         echo ${RIPP}
+         # echo the repo is 
+         # echo ${RIPP}
          mkdir -p ${RIPP} && cd ${RIPP}
          
          echo creating new directory is done
-         ls -al
-         echo "${{ secrets.ENV }}" > .env
-         echo create .env
-         echo "${{ secrets.HTACCESS }}" > .htaccess
-         echo create .htaccess
-         echo creating .env and .htaccess is done  
-         
+         if ($envpriv==true)
+         than
+           echo "${{ secrets.ENV }}" > .env
+           echo create .env
+           echo "${{ secrets.HTACCESS }}" > .htaccess
+           echo create .htaccess
+           echo creating .env and .htaccess is done  
+         fi
          mkdir jwt && cd jwt
          echo creating new jwt dir
          
