@@ -126,7 +126,7 @@ jobs:
         with:
           version: '290.0.1'
           service_account_key: ${{ secrets.GKE_SA_KEY }}
-          service_account_email: ${{ secrets.service_account_email }}
+          #service_account_email: ${{ secrets.service_account_email }}
           project_id: ${{ secrets.GKE_PROJECT }}
           export_default_credentials: true
 
