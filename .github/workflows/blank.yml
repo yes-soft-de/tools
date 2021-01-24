@@ -132,9 +132,7 @@ jobs:
          git push 
          
       - uses: actions/checkout@v2
-        with:
-         repository: yes-soft-de/environment-tools
-         token: ${{ secrets.ENVGHTOKEN }}
+       
       - uses: google-github-actions/setup-gcloud@master
         with:
           version: '290.0.1'
