@@ -8,7 +8,7 @@ on:
     branches: [ main ]
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: test    # TODO: update to cluster name
+  GKE_CLUSTER: yessoft1    # TODO: update to cluster name
   GKE_ZONE: us-central1-c   # TODO: update to cluster zone
   DEPLOYMENT_NAME: turkish-app-test
   IMAGE: static-site
