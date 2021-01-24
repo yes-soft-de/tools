@@ -150,7 +150,7 @@ jobs:
          gcloud --quiet auth configure-docker
 
          echo file is generated
-         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
+         #gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
          echo gcget
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}sec
          
