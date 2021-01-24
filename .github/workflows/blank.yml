@@ -134,7 +134,10 @@ jobs:
          ls -al 
          cd ..
          ls -al
-         cd..
+         cd .github
+         ls -al
+         
+         cd ..
          ls -al
          
       - uses: actions/checkout@v2
