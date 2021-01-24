@@ -78,10 +78,10 @@ jobs:
           cd ..
           rm -rf .env 
           else
-          echo ok 
-          sed -i "s|$FORREPLACE123|$REPO|g" .env
-          cd public
-          sed -i "s|$FORREPLACE123|$REPO|g" .htaccess
+            echo ok 
+            sed -i "s|$FORREPLACE123|$REPO|g" .env
+            cd public
+            sed -i "s|$FORREPLACE123|$REPO|g" .htaccess
           fi 
           git add .
           git commit -a -m "iit"
