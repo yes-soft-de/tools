@@ -37,6 +37,7 @@ jobs:
           echo "envpriv=${envpriv}" >> $GITHUB_ENV
           echo "GKE_CLUSTER=${GKE_CLUSTER}" >> $GITHUB_ENV
           echo "GKE_ZONE=${GKE_ZONE}" >> $GITHUB_ENV
+          echo "GHACCOUNT=${GHACCOUNT}" >> $GITHUB_ENV
           #echo "::set-env name=REP::$REPO"
           echo $RIPP
           echo ${{ secrets.ghtoken }} > token.txt
@@ -171,8 +172,8 @@ jobs:
          gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
          ls -al 
          #change $ghaccount to org
-         git clone  https://github.com/$GHACCOUNT/$REPO.git
-         
+         git clone  https://github.com/$GHACCOUNT/$RIPP.git
+         cd $RIPP
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}
          cd k8s
          kubectl apply -f namespace.yaml
