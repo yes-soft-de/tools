@@ -121,7 +121,9 @@ jobs:
          then
            echo "${{ secrets.ENV }}" > .env
            echo create .env
+           sed -i "s|FORREPLACE123|$RIPP|g" .env
            echo "${{ secrets.HTACCESS }}" > .htaccess
+            sed -i "s|FORREPLACE123|$RIPP|g" .htaccess
            echo create .htaccess
            echo creating .env and .htaccess is done 
            echo 'FROM alpine:3.7' >> Dockerfile
