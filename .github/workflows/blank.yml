@@ -69,7 +69,7 @@ jobs:
           
           sed -i "s|PROJECT_ID123|$project|g" Dockerfile
           sed -i "s|SECRETNAME123|${REPO}sec|g" Dockerfile
-          if ($envpriv=='true')
+          if [[ $envpriv=='true' ]]
           then
           sed -i "s|#@1||g" Dockerfile
           fi
@@ -116,15 +116,15 @@ jobs:
          mkdir -p ${RIPP} && cd ${RIPP}
          
          echo creating new directory is done
-         if ($envpriv=='true')
+         if [[ $envpriv=='true' ]]
          then
            echo "${{ secrets.ENV }}" > .env
            echo create .env
            echo "${{ secrets.HTACCESS }}" > .htaccess
            echo create .htaccess
            echo creating .env and .htaccess is done 
-           echo 'FROM alpine:3.7
-           COPY . . ' > Dockerfile
+           echo 'FROM alpine:3.7' >> Dockerfile
+           echo 'COPY . .' >> Dockerfile
             
          fi
          mkdir jwt && cd jwt
