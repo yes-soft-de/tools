@@ -177,7 +177,9 @@ jobs:
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}
          cd k8s
          kubectl apply -f namespace.yaml
+         sed -i "s|123secret123|${{ secrets.ROOTPASSWORD }}|g" secret.yaml
          kubectl apply -f secret.yaml
+         
          kubectl apply -f configmap.yaml
          kubectl apply -f mysql.yaml
          kubectl apply -f server.yaml
