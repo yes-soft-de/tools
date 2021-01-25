@@ -169,7 +169,8 @@ jobs:
           export_default_credentials: true
       - run: |
          gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
-
+         ls -al 
+         
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}
          cd k8s
          kubectl apply -f namespace.yaml
