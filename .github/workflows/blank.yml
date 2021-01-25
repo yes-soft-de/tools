@@ -57,6 +57,8 @@ jobs:
           cd $REPO/k8s
           echo cd is done 
           sed -i "s|FORREPLACE1235|$REPO|g" server.yaml
+          sed -i "s|PROJECT123|$project|g" server.yaml
+          
           sed -i "s|FORREPLACE1235|$REPO|g" secret.yaml
           echo sed 1 is done
           sed -i "s|FORREPLACE1235|$REPO|g" mysql.yaml
