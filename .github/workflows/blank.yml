@@ -14,6 +14,7 @@ env:
   IMAGE: static-site
   ORGANIZATION: yes-soft-de
   ENVREPO: environment-tools
+  token: ${{ secrets.GITHUB_TOKEN }}
   
 
 
@@ -41,8 +42,8 @@ jobs:
           echo "TOKEN=${{ github.token }}" >> $GITHUB_ENV   
           #echo "::set-env name=REP::$REPO"
           
-          echo "${{ github.token }}"
-          echo "${{ secrets.GHTOKEN }}" > token.txt
+          echo "${token}"
+          echo "${token}" > token.txt
           
           echo txt is done 
           #gh auth login --with-token process.env.GITHUB_TOKEN
