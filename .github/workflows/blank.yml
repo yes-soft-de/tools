@@ -43,7 +43,8 @@ jobs:
           echo $RIPP
           echo ${TOKEN} > token.txt
           
-          gh auth login --with-token <  token.txt
+          gh auth login --with-token ${{ github.token }}
+          
         
           git remote rm origin 
           #change GHACCOUNT to yessoft when u finish 
