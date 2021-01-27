@@ -41,7 +41,7 @@ jobs:
           echo "TOKEN=${{ github.token }}" >> $GITHUB_ENV   
           #echo "::set-env name=REP::$REPO"
           echo $RIPP
-          echo ${{ secrets.GITHUB_TOKEN }} > token.txt
+          echo "${{ secrets.GITHUB_TOKEN }}" > token.txt
           
           gh auth login --with-token < token.txt
           
