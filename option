@@ -1,8 +1,6 @@
 envpriv=true
 REPO=kenan
-GHACCOUNT=aliomom
 TEMPLATE="yes-soft-de/symfony-app-skeleton"
 ACCESS=public
-
 GKE_CLUSTER=yessoft-1    # TODO: update to cluster name
 GKE_ZONE=us-central1-c   # TODO: updte to cluster zone
