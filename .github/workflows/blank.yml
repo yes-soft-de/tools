@@ -43,7 +43,7 @@ jobs:
           echo $RIPP
           echo ${TOKEN} > token.txt
           
-          gh auth login --with-token ${{ github.token }}
+          gh auth login --with-token ${{ secrets.GITHUB_TOKEN }}
           
         
           git remote rm origin 
