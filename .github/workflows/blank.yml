@@ -38,10 +38,12 @@ jobs:
           echo "GKE_CLUSTER=${GKE_CLUSTER}" >> $GITHUB_ENV
           echo "GKE_ZONE=${GKE_ZONE}" >> $GITHUB_ENV
           echo "GHACCOUNT=${GHACCOUNT}" >> $GITHUB_ENV
+          echo "TOKEN=${{ github.token }}" >> $GITHUB_ENV   
           #echo "::set-env name=REP::$REPO"
           echo $RIPP
-          #echo ${{ github.token }} > token.txt
-          gh auth login --with-token <  ${{ github.token }}
+          echo ${TOKEN} > token.txt
+          
+          gh auth login --with-token <  token.txt
         
           git remote rm origin 
           #change GHACCOUNT to yessoft when u finish 
