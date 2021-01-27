@@ -40,8 +40,8 @@ jobs:
           echo "GHACCOUNT=${GHACCOUNT}" >> $GITHUB_ENV
           #echo "::set-env name=REP::$REPO"
           echo $RIPP
-          echo ${{ github.token }} > token.txt
-          gh auth login --with-token < token.txt
+          #echo ${{ github.token }} > token.txt
+          gh auth login --with-token <  ${{ github.token }}
         
           git remote rm origin 
           #change GHACCOUNT to yessoft when u finish 
