@@ -72,7 +72,7 @@ jobs:
           fi
           git remote rm origin 
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
-          git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
+          git remote add origin https://${{github.actor}}:${{ secrets.GHTOKEN }}@github.com/aliomom/$REPO.git
           sed -i "s|FORREPLACE123|$REPO|g" .env
           cd public
           sed -i "s|FORREPLACE123|$REPO|g" .htaccess
