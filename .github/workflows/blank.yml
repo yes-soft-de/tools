@@ -41,65 +41,43 @@ jobs:
           echo "TOKEN=${{ github.token }}" >> $GITHUB_ENV   
           #echo "::set-env name=REP::$REPO"
           
-          echo $RIPP
+          echo "${{ github.token }}"
           echo "${{ github.token }}" > token.txt
-          echo txt is done 
-          #gh config set -h github.com oauth_token ${{ secrets.GITHUB_TOKEN }}
-          gh auth login --with-token < token.txt
           
-        
+          echo txt is done 
+          gh auth login --with-token < token.txt
           git remote rm origin 
           #change GHACCOUNT to yessoft when u finish 
           gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
-          echo repo is created 
           git remote rm origin 
-          echo ${GH_USERNAME}
           git config --global user.name ${{github.actor}}
           git config --global user.email "yescloud@gmail.com"
-          echo git config is done 
           sleep 15
           git clone  https://github.com/$GHACCOUNT/$REPO.git
-          echo git clone is done
           cd $REPO/k8s
-          echo cd is done 
           sed -i "s|FORREPLACE1235|$REPO|g" server.yaml
           sed -i "s|PROJECT123|$project|g" server.yaml
-          
           sed -i "s|FORREPLACE1235|$REPO|g" secret.yaml
-          echo sed 1 is done
           sed -i "s|FORREPLACE1235|$REPO|g" mysql.yaml
-          echo sed 2 is done
           sed -i "s|FORREPLACE1235|$REPO|g" namespace.yaml
           sed -i "s|FORREPLACE1235|$REPO|g" configmap.yaml
-          echo sed 3 is done 
           cd .. 
           project=${{secrets.GKE_PROJECT}}
-          echo $project
-          
           sed -i "s|PROJECT_ID123|$project|g" Dockerfile
           sed -i "s|SECRETNAME123|${REPO}sec|g" Dockerfile
           if [[ $envpriv=='true' ]]
           then
           sed -i "s|#@1||g" Dockerfile
           fi
-
-         
-
-          
-
-          echo string replace is done 
-         
-          git remote -v
           git remote rm origin 
-          echo remote remove is done
+
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
           git remote add origin https://aliomom:${{ secrets.ghtoken }}@github.com/aliomom/$REPO.git
-          ls -al
-          echo ok 
+
           sed -i "s|FORREPLACE123|$REPO|g" .env
           cd public
           sed -i "s|FORREPLACE123|$REPO|g" .htaccess
-          echo $envpriv
+
           if [[ $envpriv=='true' ]]
           then
             rm -rf .htaccess
@@ -109,10 +87,6 @@ jobs:
           git add .
           git commit -a -m "iit"
           #git push --set-upstream origin symfony-app-skeleton
-          
-
-          
-
           git push origin HEAD:symfony-app-skeleton
           cd .. 
       - uses: actions/checkout@v2
@@ -120,11 +94,7 @@ jobs:
          repository: yes-soft-de/environment-tools
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
-         # echo the repo is 
-         # echo ${RIPP}
          mkdir -p ${RIPP} && cd ${RIPP}
-         
-         echo creating new directory is done
          if [[ $envpriv=='true' ]]
          then
            echo "${{ secrets.ENV }}" > .env
@@ -139,21 +109,14 @@ jobs:
             
          fi
          mkdir jwt && cd jwt
-         echo creating new jwt dir
-         
          openssl genpkey -out private.pem -aes256 -pass pass:${{ secrets.PASS }} -algorithm rsa -pkeyopt rsa_keygen_bits:4096 
          openssl pkey -passin pass:${{ secrets.PASS }} -in private.pem -out public.pem -pubout
          echo creating new jwt 
-         ls -al 
-         cd .. && ls -al
-         
+         cd ..
          git add .
          git commit -a -m "add .env and .htacces and jwt"
          git push 
 
-         
-
-       
       - uses: google-github-actions/setup-gcloud@v0.2.0
         with:
           service_account_key: ${{ secrets.GKE_SA_KEY }}
@@ -162,10 +125,6 @@ jobs:
 
       - run: |
          gcloud --quiet auth configure-docker
-
-         echo file is generated
-         #gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
-         echo gcget
          cd $RIPP
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}sec
          
@@ -180,7 +139,6 @@ jobs:
           export_default_credentials: true
       - run: |
          gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
-         ls -al 
          #change $ghaccount to org
          git clone  https://github.com/$GHACCOUNT/$RIPP.git
          cd $RIPP
@@ -189,7 +147,6 @@ jobs:
          kubectl apply -f namespace.yaml
          sed -i "s|123secret123|${{ secrets.ROOTPASSWORD }}|g" secret.yaml
          kubectl apply -f secret.yaml
-         
          kubectl apply -f configmap.yaml
          kubectl apply -f mysql.yaml
          kubectl apply -f server.yaml
