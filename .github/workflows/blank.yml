@@ -41,7 +41,7 @@ jobs:
           #echo "::set-env name=REP::$REPO"
           echo $RIPP
           echo ${{ secrets.ghtoken }} > token.txt
-          gh auth login --with-token < token.txt
+          #gh auth login --with-token < token.txt
           git remote rm origin 
           #change GHACCOUNT to yessoft when u finish 
           gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
