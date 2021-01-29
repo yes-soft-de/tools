@@ -36,7 +36,7 @@ jobs:
           echo "OWENR=${OWENR}" >> $GITHUB_ENV
           #echo "::set-env name=REP::$REPO"
           echo "path="${OWENR}/${REPO}.git"" >> $GITHUB_ENV
-          echo "TEMPLATE="${TEMPLATE}" >> $GITHUB_ENV
+          echo "TEMPLATE=${TEMPLATE}" >> $GITHUB_ENV
 
           echo "${{ secrets.GHTOKEN }}" > token.txt
           
