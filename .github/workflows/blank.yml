@@ -173,7 +173,7 @@ jobs:
          gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
          #change $ghaccount to org
          #git clone  https://github.com/$GHACCOUNT/$RIPP.git
-         cd $RIPP
+       
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}
          cd k8s
          kubectl apply -f namespace.yaml
