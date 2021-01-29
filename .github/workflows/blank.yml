@@ -69,7 +69,7 @@ jobs:
           
           cd k8s
           echo 0.4
-          sed -i "s|FORREPLACE1235|$REPO|g" server.yaml
+          sed -i "s|FORREPLACE1235|$RIPP|g" server.yaml
           sed -i "s|PROJECT123|$PROJECT_ID|g" server.yaml
           sed -i "s|FORREPLACE1235|$RIPP|g" secret.yaml
           sed -i "s|FORREPLACE1235|$RIPP|g" mysql.yaml
