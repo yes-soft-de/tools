@@ -107,6 +107,10 @@ jobs:
           git push origin HEAD:symfony-app-skeleton
           echo 7
           git checkout -b dev symfony-app-skeleton
+                 
+          git add .
+          git commit -a -m "create dev b"
+          git push origin HEAD:dev
           echo 8
           cd .. 
           #
