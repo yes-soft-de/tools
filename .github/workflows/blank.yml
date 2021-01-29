@@ -8,13 +8,8 @@ on:
     branches: [ main ]
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: yessoft1    # TODO: update to cluster name
-  GKE_ZONE: us-central1-c   # TODO: update to cluster zone
-  DEPLOYMENT_NAME: turkish-app-test
-  IMAGE: static-site
   ORGANIZATION: yes-soft-de
   ENVREPO: environment-tools
-  token: ${{ secrets.GITHUB_TOKEN }}
   
 
 
@@ -38,8 +33,7 @@ jobs:
           echo "envpriv=${envpriv}" >> $GITHUB_ENV
           echo "GKE_CLUSTER=${GKE_CLUSTER}" >> $GITHUB_ENV
           echo "GKE_ZONE=${GKE_ZONE}" >> $GITHUB_ENV
-          echo "GHACCOUNT=${GHACCOUNT}" >> $GITHUB_ENV
-          echo "TOKEN=${{ github.token }}" >> $GITHUB_ENV   
+          echo "OWENR=${OWENR}" >> $GITHUB_ENV
           #echo "::set-env name=REP::$REPO"
 
           echo "${{ secrets.GHTOKEN }}" > token.txt
@@ -50,7 +44,7 @@ jobs:
           echo login to gh is done
           git remote rm origin 
           #change GHACCOUNT to yessoft when u finish 
-          gh repo create $GHACCOUNT/$REPO  --template=$TEMPLATE --confirm --$ACCESS
+          gh repo create $OWENR/$REPO  --template=$TEMPLATE --confirm --$ACCESS
           git remote rm origin 
           git config --global user.name ${{github.actor}}
           git config --global user.email "yescloud@gmail.com"
