@@ -150,18 +150,21 @@ jobs:
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}sec
          
       - uses: actions/checkout@v2
+        with:
+         repository: ${{ env.path }}
+         token: ${{ secrets.ENVGHTOKEN }}
+         ref: symfony-app-skeleton
+
       - uses: google-github-actions/setup-gcloud@master
         with:
-          
           service_account_key: ${{ secrets.GCP_SA_KEY }}
-
           service_account_email: ${{ secrets.service_account_email }}
           project_id: ${{ secrets.GKE_PROJECT }}
           export_default_credentials: true
       - run: |
          gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
          #change $ghaccount to org
-         git clone  https://github.com/$GHACCOUNT/$RIPP.git
+         #git clone  https://github.com/$GHACCOUNT/$RIPP.git
          cd $RIPP
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}
          cd k8s
