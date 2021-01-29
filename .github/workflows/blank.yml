@@ -115,8 +115,7 @@ jobs:
           git commit -a -m "create dev b"
           git push origin HEAD:dev
           echo 8
-          cd .. 
-          #
+
       - uses: actions/checkout@v2
         with:
          repository: yes-soft-de/environment-tools
@@ -133,7 +132,7 @@ jobs:
          then
            temp=https://github.com/${{ env.TEMPLATE }}.git
            echo $temp
-           git clone https://github.com/yes-soft-de/symfony-app-skeleton.git
+           #git clone https://github.com/yes-soft-de/symfony-app-skeleton.git
            echo 2
            cd symfony-app-skeleton
            echo 3
