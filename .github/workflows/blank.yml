@@ -65,7 +65,9 @@ jobs:
       - run: |
           #git clone  https://github.com/$OWENR/$REPO.git
           echo 0.5
-          cd $REPO/k8s
+          ls -al
+          
+          cd $RIPP/k8s
           echo 0.4
           sed -i "s|FORREPLACE1235|$REPO|g" server.yaml
           sed -i "s|PROJECT123|$PROJECT_ID|g" server.yaml
