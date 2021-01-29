@@ -56,7 +56,7 @@ jobs:
           echo 0.4
       - uses: actions/checkout@v2
         with:
-         repository: $OWENR/$REPO.git
+         repository: "$OWENR/$REPO.git"
          token: ${{ secrets.ENVGHTOKEN }}
          ref: symfony-app-skeleton
 
