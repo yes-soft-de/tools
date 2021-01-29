@@ -132,7 +132,7 @@ jobs:
          then
            temp=https://github.com/${{ env.TEMPLATE }}.git
            echo $temp
-           git clone $temp
+           git clone "$temp"
            echo 2
            cd symfony-app-skeleton
            echo 3
