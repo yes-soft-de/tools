@@ -76,7 +76,7 @@ jobs:
           git remote rm origin 
           echo 2
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
-          git remote add origin https://yes-cloud-env:${{ secrets.GHTOKEN }}@github.com/${OWENER}/$REPO.git
+          git remote add origin https://yes-cloud-env:${{ secrets.GHTOKEN }}@github.com/${OWENR}/$REPO.git
           echo 3
           sed -i "s|FORREPLACE123|$REPO|g" .env
           cd public
