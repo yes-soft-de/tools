@@ -125,7 +125,7 @@ jobs:
          mkdir -p ${RIPP} && cd ${RIPP}
          if [[ $envpriv=='true' ]]
          then
-           git clone $template
+           git clone $TEMPLATE
            cd symfony-app-skeleton
            cp .env ../
            cd puplic
