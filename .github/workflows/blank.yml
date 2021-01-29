@@ -157,7 +157,7 @@ jobs:
         with:
          repository: ${{ env.path }}
          token: ${{ secrets.ENVGHTOKEN }}
-         ref: symfony-app-skeleton
+         ref: dev
 
       - uses: google-github-actions/setup-gcloud@master
         with:
