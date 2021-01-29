@@ -65,9 +65,12 @@ jobs:
           then
           sed -i "s|#@1||g" Dockerfile
           fi
+          echo 1
           git remote rm origin 
+          echo 2
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
           git remote add origin https://yes-cloud-env:${{ secrets.GHTOKEN }}@github.com/${OWENER}/$REPO.git
+          echo 3
           sed -i "s|FORREPLACE123|$REPO|g" .env
           cd public
           sed -i "s|FORREPLACE123|$REPO|g" .htaccess
@@ -77,11 +80,17 @@ jobs:
             cd ..
             rm -rf .env 
           fi 
+          echo 4
           git add .
+          echo 5
           git commit -a -m "iit"
+          echo 6
           #git push --set-upstream origin symfony-app-skeleton
+          
           git push origin HEAD:symfony-app-skeleton
+          echo 7
           git checkout -b dev symfony-app-skeleton
+          echo 8
           cd .. 
           #
       - uses: actions/checkout@v2
