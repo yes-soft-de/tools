@@ -124,6 +124,7 @@ jobs:
       - run: |
          echo 1
          mkdir -p ${RIPP} && cd ${RIPP}
+         echo 1.1
          if [[ $envpriv=='true' ]]
          then
            git clone $TEMPLATE
