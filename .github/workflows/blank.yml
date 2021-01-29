@@ -54,7 +54,12 @@ jobs:
           echo 0.3
           sleep 15
           echo 0.4
-          git clone  https://github.com/$OWENR/$REPO.git
+      - uses: actions/checkout@v2
+        with:
+         repository: $OWENR/$REPO.git
+         token: ${{ secrets.ENVGHTOKEN }}
+      - run: |
+          #git clone  https://github.com/$OWENR/$REPO.git
           echo 0.5
           cd $REPO/k8s
           echo 0.4
