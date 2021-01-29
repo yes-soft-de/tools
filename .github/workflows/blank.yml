@@ -57,7 +57,7 @@ jobs:
           echo 0.4
       - uses: actions/checkout@v2
         with:
-         repository: ${{ GITHUB_ENV.path }}
+         repository: ${{ env.path }}
          token: ${{ secrets.ENVGHTOKEN }}
          ref: symfony-app-skeleton
 
