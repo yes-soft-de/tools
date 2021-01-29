@@ -64,7 +64,6 @@ jobs:
 
 
       - run: |
-          #git clone  https://github.com/$OWENR/$REPO.git
           echo 0.5
           ls -al
           
@@ -89,9 +88,9 @@ jobs:
           echo 2
 
           echo 3
-          sed -i "s|FORREPLACE123|$REPO|g" .env
+          sed -i "s|FORREPLACE123|${RIPP}|g" .env
           cd public
-          sed -i "s|FORREPLACE123|$REPO|g" .htaccess
+          sed -i "s|FORREPLACE123|${RIPP}|g" .htaccess
           if [[ $envpriv=='true' ]]
           then
             rm -rf .htaccess
@@ -128,7 +127,7 @@ jobs:
          echo 1.1
          if [[ $envpriv=='true' ]]
          then
-           git clone "$TEMPLATE"
+           git clone ${TEMPLATE}
            echo 2
            cd symfony-app-skeleton
            echo 3
