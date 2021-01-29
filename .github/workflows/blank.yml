@@ -123,11 +123,11 @@ jobs:
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
          echo 1
-         mkdir -p ${RIPP} && cd ${RIPP}
+         mkdir -p ${{ env.RIPP }} && cd ${{ env.RIPP }}
          echo 1.1
          ls -al
          echo $envpriv
-         if [[ $envpriv==true ]]
+         if [[ ${{ env.envpriv }}==true ]]
          then
            temp=https://github.com/${{ env.TEMPLATE }}.git
            echo $temp
