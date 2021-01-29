@@ -125,7 +125,9 @@ jobs:
          echo 1
          mkdir -p ${RIPP} && cd ${RIPP}
          echo 1.1
-         if [[ $envpriv=='true' ]]
+         ls -al
+         echo $envpriv
+         if [[ $envpriv==true ]]
          then
            temp=https://github.com/${{ env.TEMPLATE }}.git
            echo $temp
