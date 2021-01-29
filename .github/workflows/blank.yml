@@ -123,7 +123,8 @@ jobs:
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
          echo 1
-         mkdir -p ${{ env.RIPP }} && cd ${{ env.RIPP }}
+         mkdir -p $RIPP 
+         cd $RIPP
          echo 1.1
          ls -al
          echo $envpriv
