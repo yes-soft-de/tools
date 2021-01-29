@@ -57,9 +57,10 @@ jobs:
           echo 0.4
       - uses: actions/checkout@v2
         with:
-         repository: ${ path }
+         repository: ${{ GITHUB_ENV.path }}
          token: ${{ secrets.ENVGHTOKEN }}
          ref: symfony-app-skeleton
+
 
       - run: |
           #git clone  https://github.com/$OWENR/$REPO.git
