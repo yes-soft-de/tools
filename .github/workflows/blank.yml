@@ -107,8 +107,11 @@ jobs:
           git push origin HEAD:symfony-app-skeleton
           echo 7
           git checkout -b dev symfony-app-skeleton
-                 
+          echo 'this edited by tools repository for more informatin about this repository please visit https://yes-soft.de/category/blog/' >> README.md       
           git add .
+          ls -al
+          
+          
           git commit -a -m "create dev b"
           git push origin HEAD:dev
           echo 8
@@ -139,6 +142,7 @@ jobs:
          echo creating new jwt 
          cd ..
          git add .
+         
          git commit -a -m "add .env and .htacces and jwt"
          git push 
 
