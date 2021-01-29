@@ -1,5 +1,5 @@
 envpriv=true
-OWENR:aliomom
+OWENR=aliomom
 REPO=asdd123123
 TEMPLATE="yes-soft-de/symfony-app-skeleton"
 ACCESS=public
