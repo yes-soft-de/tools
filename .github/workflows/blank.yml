@@ -59,14 +59,14 @@ jobs:
           git clone  https://github.com/$GHACCOUNT/$REPO.git
           cd $REPO/k8s
           sed -i "s|FORREPLACE1235|$REPO|g" server.yaml
-          sed -i "s|PROJECT123|$project|g" server.yaml
+          sed -i "s|PROJECT123|$PROJECT_ID|g" server.yaml
           sed -i "s|FORREPLACE1235|$REPO|g" secret.yaml
           sed -i "s|FORREPLACE1235|$REPO|g" mysql.yaml
           sed -i "s|FORREPLACE1235|$REPO|g" namespace.yaml
           sed -i "s|FORREPLACE1235|$REPO|g" configmap.yaml
           cd .. 
           project=${{secrets.GKE_PROJECT}}
-          sed -i "s|PROJECT_ID123|$project|g" Dockerfile
+          sed -i "s|PROJECT_ID123|$PROJECT_ID|g" Dockerfile
           sed -i "s|SECRETNAME123|${REPO}sec|g" Dockerfile
           if [[ $envpriv=='true' ]]
           then
@@ -88,7 +88,9 @@ jobs:
           git commit -a -m "iit"
           #git push --set-upstream origin symfony-app-skeleton
           git push origin HEAD:symfony-app-skeleton
+          git checkout -b dev symfony-app-skeleton
           cd .. 
+          #
       - uses: actions/checkout@v2
         with:
          repository: yes-soft-de/environment-tools
