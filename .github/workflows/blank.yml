@@ -56,7 +56,7 @@ jobs:
           echo 0.4
       - uses: actions/checkout@v2
         with:
-         repository: "$OWENR/$REPO.git"
+         repository: ${OWENR}/${RIPP}.git
          token: ${{ secrets.ENVGHTOKEN }}
          ref: symfony-app-skeleton
 
@@ -67,14 +67,14 @@ jobs:
           echo 0.4
           sed -i "s|FORREPLACE1235|$REPO|g" server.yaml
           sed -i "s|PROJECT123|$PROJECT_ID|g" server.yaml
-          sed -i "s|FORREPLACE1235|$REPO|g" secret.yaml
-          sed -i "s|FORREPLACE1235|$REPO|g" mysql.yaml
-          sed -i "s|FORREPLACE1235|$REPO|g" namespace.yaml
-          sed -i "s|FORREPLACE1235|$REPO|g" configmap.yaml
+          sed -i "s|FORREPLACE1235|$RIPP|g" secret.yaml
+          sed -i "s|FORREPLACE1235|$RIPP|g" mysql.yaml
+          sed -i "s|FORREPLACE1235|$RIPP|g" namespace.yaml
+          sed -i "s|FORREPLACE1235|$RIPP|g" configmap.yaml
           cd .. 
 
           sed -i "s|PROJECT_ID123|$PROJECT_ID|g" Dockerfile
-          sed -i "s|SECRETNAME123|${REPO}sec|g" Dockerfile
+          sed -i "s|SECRETNAME123|${RIPP}sec|g" Dockerfile
           if [[ $envpriv=='true' ]]
           then
           sed -i "s|#@1||g" Dockerfile
