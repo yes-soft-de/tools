@@ -124,6 +124,7 @@ jobs:
       - run: |
          echo 1
          mkdir -p $RIPP 
+         ls -al
          cd $RIPP
          echo 1.1
          ls -al
@@ -132,7 +133,7 @@ jobs:
          then
            temp=https://github.com/${{ env.TEMPLATE }}.git
            echo $temp
-           git clone "$temp"
+           git clone https://github.com/yes-soft-de/symfony-app-skeleton.git
            echo 2
            cd symfony-app-skeleton
            echo 3
