@@ -58,7 +58,7 @@ jobs:
           sed -i "s|FORREPLACE1235|$REPO|g" namespace.yaml
           sed -i "s|FORREPLACE1235|$REPO|g" configmap.yaml
           cd .. 
-          project=${{secrets.GKE_PROJECT}}
+
           sed -i "s|PROJECT_ID123|$PROJECT_ID|g" Dockerfile
           sed -i "s|SECRETNAME123|${REPO}sec|g" Dockerfile
           if [[ $envpriv=='true' ]]
@@ -67,7 +67,7 @@ jobs:
           fi
           git remote rm origin 
           #git remote set-url origin git@github.com:@GHACCOUNT/$REPO.git
-          git remote add origin https://${{github.actor}}:${{ secrets.GHTOKEN }}@github.com/aliomom/$REPO.git
+          git remote add origin https://yes-cloud-env:${{ secrets.GHTOKEN }}@github.com/${OWENER}/$REPO.git
           sed -i "s|FORREPLACE123|$REPO|g" .env
           cd public
           sed -i "s|FORREPLACE123|$REPO|g" .htaccess
