@@ -45,12 +45,19 @@ jobs:
           git remote rm origin 
           #change GHACCOUNT to yessoft when u finish 
           gh repo create $OWENR/$REPO  --template=$TEMPLATE --confirm --$ACCESS
+          echo 0
           git remote rm origin 
+          echo 0.1
           git config --global user.name ${{github.actor}}
+          echo 0.2
           git config --global user.email "yescloud@gmail.com"
+          echo 0.3
           sleep 15
-          git clone  https://github.com/$GHACCOUNT/$REPO.git
+          echo 0.4
+          git clone  https://github.com/$OWENER/$REPO.git
+          echo 0.5
           cd $REPO/k8s
+          echo 0.4
           sed -i "s|FORREPLACE1235|$REPO|g" server.yaml
           sed -i "s|PROJECT123|$PROJECT_ID|g" server.yaml
           sed -i "s|FORREPLACE1235|$REPO|g" secret.yaml
