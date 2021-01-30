@@ -136,23 +136,23 @@ jobs:
            echo 2
            cd symfony-app-skeleton
            echo 3
-           #cp .env ../
-           # echo 4
-           #cd puplic
-           #echo 5
-           #cp .htaccess ../../
-           #echo 6
+           cp .env ../
+           echo 4
+           cd puplic
+           echo 5
+           cp .htaccess ../../
+           echo 6
            cd ../../
-           #echo 7
+           echo 7
            rm -rf symfony-app-skeleton
            exit
            echo 8
-           #echo "${{ secrets.ENV }}" > .env
+           
            echo create .env
            ls -al
            sed -i "s|FORREPLACE123|${{ env.RIPP  }}|g" .env
            sed -i "s|keyphr|${{ secrets.PASS }}|g" .env
-           #echo "${{ secrets.HTACCESS }}" > .htaccess
+          
            sed -i "s|FORREPLACE123|${{ env.RIPP  }}|g" .htaccess
            echo create .htaccess
            echo creating .env and .htaccess is done 
