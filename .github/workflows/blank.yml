@@ -145,7 +145,7 @@ jobs:
            cd ../../
            echo 7
            rm -rf symfony-app-skeleton
-           exit
+         
            echo 8
            
            echo create .env
