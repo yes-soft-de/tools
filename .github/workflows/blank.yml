@@ -122,17 +122,17 @@ jobs:
          token: ${{ secrets.ENVGHTOKEN }}
       - run: |
          echo 1
-         mkdir -p $RIPP 
-         ls -al
-         cd $RIPP
-         echo 1.1
-         ls -al
+         mkdir ${{ env.RIPP  }}
+         ls -la
+         cd ${{ env.RIPP  }}
+         echo 112
+         ls -la
          echo $envpriv
          if [[ ${{ env.envpriv }}==true ]]
          then
            temp=https://github.com/${{ env.TEMPLATE }}.git
            echo $temp
-           #git clone https://github.com/yes-soft-de/symfony-app-skeleton.git
+           git clone https://github.com/yes-soft-de/symfony-app-skeleton.git
            echo 2
            cd symfony-app-skeleton
            echo 3
@@ -149,10 +149,10 @@ jobs:
            #echo "${{ secrets.ENV }}" > .env
            echo create .env
            ls -al
-           sed -i "s|FORREPLACE123|$RIPP|g" .env
+           sed -i "s|FORREPLACE123|${{ env.RIPP  }}|g" .env
            sed -i "s|keyphr|${{ secrets.PASS }}|g" .env
            #echo "${{ secrets.HTACCESS }}" > .htaccess
-           sed -i "s|FORREPLACE123|$RIPP|g" .htaccess
+           sed -i "s|FORREPLACE123|${{ env.RIPP  }}|g" .htaccess
            echo create .htaccess
            echo creating .env and .htaccess is done 
            echo 'FROM alpine:3.7' >> Dockerfile
