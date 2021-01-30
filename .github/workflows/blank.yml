@@ -132,13 +132,13 @@ jobs:
          then
            temp=https://github.com/${{ env.TEMPLATE }}.git
            echo $temp
-           git clone https://github.com/yes-soft-de/symfony-app-skeleton.git
+           git clone $temp
            echo 2
            cd symfony-app-skeleton
            echo 3
            cp .env ../
            echo 4
-           cd puplic
+           cd public
            echo 5
            cp .htaccess ../../
            echo 6
