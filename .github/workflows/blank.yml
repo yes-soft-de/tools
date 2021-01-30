@@ -158,6 +158,8 @@ jobs:
            echo creating .env and .htaccess is done 
            echo 'FROM alpine:3.7' >> Dockerfile
            echo 'COPY . .' >> Dockerfile
+           cat .env
+           cat .htaccess
             
          fi
          mkdir jwt && cd jwt
@@ -179,7 +181,8 @@ jobs:
 
       - run: |
          gcloud --quiet auth configure-docker
-         cd $RIPP
+         cd ${{ env.RIPP  }}
+         ls -al
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}sec
          
       - uses: actions/checkout@v2
