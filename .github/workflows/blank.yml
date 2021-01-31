@@ -78,7 +78,7 @@ jobs:
           cd .. 
 
           sed -i "s|PROJECT_ID123|$PROJECT_ID|g" Dockerfile
-          sed -i "s|SECRETNAME123|${RIPP}sec|g" Dockerfile
+          sed -i "s|REPONAME123|${RIPP}|g" Dockerfile
           if [[ $envpriv=='true' ]]
           then
           sed -i "s|#@1||g" Dockerfile
