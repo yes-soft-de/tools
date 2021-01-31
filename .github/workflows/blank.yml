@@ -181,9 +181,9 @@ jobs:
 
       - run: |
          gcloud --quiet auth configure-docker
-         cd ${{ env.RIPP  }}
+         #cd ${{ env.RIPP  }}
          ls -al
-         gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}sec
+         gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/secret
          
       - uses: actions/checkout@v2
         with:
