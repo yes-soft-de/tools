@@ -209,7 +209,11 @@ jobs:
          sed -i "s|123secretuser123|${{ secrets.USERPASSWORD }}|g" secret.yaml
          kubectl apply -f secret.yaml
          kubectl apply -f configmap.yaml
+         sed -i "s|REPLACEUserPassword|${{ secrets.USERPASSWORD }}|g" mysql.yaml
+         sed -i "s|REPLACERooTPassword|${{ secrets.ROOTPASSWORD }}|g" mysql.yaml
+
          kubectl apply -f mysql.yaml
+         
          kubectl apply -f server.yaml
 
           
