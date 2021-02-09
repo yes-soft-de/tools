@@ -1,6 +1,6 @@
 envpriv=true
-OWENR=yes-cloud-env
-REPO=tesd14455647
+OWENR=yes-soft-de
+REPO=barter
 TEMPLATE="yes-soft-de/symfony-app-skeleton"
 ACCESS=public
 GKE_CLUSTER=yessoft-1    # TODO: update to cluster name
