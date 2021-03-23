@@ -1,7 +1,7 @@
 #under edit
 name: CI
 
-#on:
+on:
   push:
     branches: [ secret-file-buider ]
   pull_request:
