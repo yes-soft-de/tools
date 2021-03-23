@@ -1,27 +1,19 @@
 #under edit
 name: CI
 
-on:
+#on:
   push:
-    branches: [ main ]
+    branches: [ secret-file-buider ]
   pull_request:
-    branches: [ main ]
+    branches: [ secret-file-buider ]
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   ORGANIZATION: yes-soft-de
   ENVREPO: environment-tools
   
-
-
-
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     runs-on: ubuntu-latest
-   
- 
-
     steps:
       - uses: actions/checkout@v2
       - name: Run a multi-line script
@@ -30,91 +22,16 @@ jobs:
         run: |
           source option 
           echo "RIPP=${REPO}" >> $GITHUB_ENV
-          echo "envpriv=${envpriv}" >> $GITHUB_ENV
+          echo "envpriv=true >> $GITHUB_ENV
           echo "GKE_CLUSTER=${GKE_CLUSTER}" >> $GITHUB_ENV
           echo "GKE_ZONE=${GKE_ZONE}" >> $GITHUB_ENV
           echo "OWENR=${OWENR}" >> $GITHUB_ENV
           #echo "::set-env name=REP::$REPO"
           echo "path="${OWENR}/${REPO}.git"" >> $GITHUB_ENV
           echo "TEMPLATE=${TEMPLATE}" >> $GITHUB_ENV
-
           echo "${{ secrets.GHTOKEN }}" > token.txt
           
           echo txt is done 
-
-          gh auth login --with-token < token.txt
-          echo login to gh is done
-          git remote rm origin 
-          #change GHACCOUNT to yessoft when u finish 
-          gh repo create $OWENR/$REPO  --template=$TEMPLATE --confirm --$ACCESS
-          echo 0
-          git remote rm origin 
-          echo 0.1
-          git config --global user.name ${{github.actor}}
-          echo 0.2
-          git config --global user.email "yescloud@gmail.com"
-          echo 0.3
-          sleep 15
-          echo 0.4
-      - uses: actions/checkout@v2
-        with:
-         repository: ${{ env.path }}
-         token: ${{ secrets.ENVGHTOKEN }}
-         ref: symfony-app-skeleton
-
-
-      - run: |
-          echo 0.5
-          ls -al
-          
-          cd k8s
-          echo 0.4
-          sed -i "s|FORREPLACE1235|$RIPP|g" server.yaml
-          sed -i "s|PROJECT123|$PROJECT_ID|g" server.yaml
-          sed -i "s|FORREPLACE1235|$RIPP|g" secret.yaml
-          sed -i "s|FORREPLACE1235|$RIPP|g" mysql.yaml
-          sed -i "s|FORREPLACE1235|$RIPP|g" namespace.yaml
-          sed -i "s|FORREPLACE1235|$RIPP|g" configmap.yaml
-          cd .. 
-
-          sed -i "s|PROJECT_ID123|$PROJECT_ID|g" Dockerfile
-          sed -i "s|REPONAME123|${RIPP}|g" Dockerfile
-          if [[ $envpriv=='true' ]]
-          then
-          sed -i "s|#@1||g" Dockerfile
-          fi
-          echo 1
-          #git remote rm origin 
-          echo 2
-
-          echo 3
-          sed -i "s|FORREPLACE123|${RIPP}|g" .env
-          cd public
-          sed -i "s|FORREPLACE123|${RIPP}|g" .htaccess
-          if [[ $envpriv=='true' ]]
-          then
-            rm -rf .htaccess
-            cd ..
-            rm -rf .env 
-          fi 
-          echo 4
-          git add .
-          echo 5
-          git commit -a -m "iit"
-          echo 6
-          #git push --set-upstream origin symfony-app-skeleton
-          
-          git push origin HEAD:symfony-app-skeleton
-          echo 7
-          git checkout -b dev symfony-app-skeleton
-          echo 'this edited by tools repository for more informatin about this repository please visit https://yes-soft.de/category/blog/' >> README.md       
-          git add .
-          ls -al
-          
-          
-          git commit -a -m "create dev b"
-          git push origin HEAD:dev
-          echo 8
 
       - uses: actions/checkout@v2
         with:
@@ -128,6 +45,7 @@ jobs:
          echo 112
          ls -la
          echo $envpriv
+         
          if [[ ${{ env.envpriv }}==true ]]
          then
            temp=https://github.com/${{ env.TEMPLATE }}.git
@@ -185,29 +103,7 @@ jobs:
          ls -al
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/secret
          
-      - uses: actions/checkout@v2
-        with:
-         repository: ${{ env.path }}
-         token: ${{ secrets.ENVGHTOKEN }}
-         ref: dev
-
-      - uses: google-github-actions/setup-gcloud@master
-        with:
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          service_account_email: ${{ secrets.service_account_email }}
-          project_id: ${{ secrets.GKE_PROJECT }}
-          export_default_credentials: true
-      - run: |
-         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
-         #change $ghaccount to org
-         #git clone  https://github.com/$GHACCOUNT/$RIPP.git
-       
-         gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/${RIPP}
-         cd k8s
-         kubectl apply -f namespace.yaml
-         sed -i "s|123secret123|${{ secrets.SECPASS }}|g" secret.yaml
-         sed -i "s|123secretuser123|${{ secrets.SECPASS }}|g" secret.yaml
-         kubectl apply -f secret.yaml
+     
          kubectl apply -f configmap.yaml
          sed -i "s|REPLACEUserPassword|${{ secrets.USERPASSWORD }}|g" mysql.yaml
          sed -i "s|REPLACERooTPassword|${{ secrets.ROOTPASSWORD }}|g" mysql.yaml
