@@ -20,7 +20,7 @@ jobs:
         env: 
           REP: 123
         run: |
-          source option 
+          source secret.option 
           echo "RIPP=${REPO}" >> $GITHUB_ENV
           echo "envpriv=true >> $GITHUB_ENV
           echo "GKE_CLUSTER=${GKE_CLUSTER}" >> $GITHUB_ENV
