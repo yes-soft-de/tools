@@ -2,13 +2,20 @@ FROM yes-cloud:yes-soft
 
 :)
 
-this tools to create .env and .htacces and jwt for project that created without skeleton .
+this tools used to create .env and .htacces and jwt for project that created without skeleton  tools (in main branch).
 
-this tools will crete new directory "with given name " in privet repo and add all cretes file on it .
+this tools will create new directory "with given name " in privet repo and add all  file to it .
 
-and another workflow will be bush a  changed to cloud image to add it to porject 
+another workflow will be bush a  changed to cloud image to add it to porject 
 
 that mean :
 
-when u change .env or any file in repo directory the changes will go to pooject automatically . devops <<< right!!!
+u will create file by this work flow and when u change .env or any file in privet repo  the changes will go to pooject automatically . devops <<< right!!!
+
+
+please update your secret as you like in github secrets in setting 
+
+Note : this work flow is linked to workflow in privet repo so when you push here it will run the work flow in privet repo automatically
+
+
 
