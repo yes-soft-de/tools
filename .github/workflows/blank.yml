@@ -87,15 +87,19 @@ jobs:
          git commit -a -m "add .env and .htacces and jwt"
          git push 
 
-      - uses: google-github-actions/setup-gcloud@v0.2.0
-        with:
-          service_account_key: ${{ secrets.GKE_SA_KEY }}
-          project_id: ${{ secrets.GKE_PROJECT }}
 
 
-      - run: |
-         gcloud --quiet auth configure-docker
-         #cd ${{ env.RIPP  }}
-         ls -al
-         gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/secret
+
+
+      #- uses: google-github-actions/setup-gcloud@v0.2.0
+        #with:
+       #   service_account_key: ${{ secrets.GKE_SA_KEY }}
+       #   project_id: ${{ secrets.GKE_PROJECT }}
+
+
+    #  - run: |
+      #   gcloud --quiet auth configure-docker
+       #  #cd ${{ env.RIPP  }}
+        # ls -al
+        # gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/secret
          
