@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run a multi-line script
         run: |
+          git config --global user.name ${{github.actor}}
+          git config --global user.email "yescloud@gmail.com"
           source secret.option 
           echo "RIPP=${REPO}" >> $GITHUB_ENV
           echo "GKE_CLUSTER=${GKE_CLUSTER}" >> $GITHUB_ENV
