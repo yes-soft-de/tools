@@ -99,16 +99,3 @@ jobs:
          ls -al
          gcloud builds submit --tag=gcr.io/${{ secrets.GKE_PROJECT }}/secret
          
-     
-         kubectl apply -f configmap.yaml
-         sed -i "s|REPLACEUserPassword|${{ secrets.USERPASSWORD }}|g" mysql.yaml
-         sed -i "s|REPLACERooTPassword|${{ secrets.ROOTPASSWORD }}|g" mysql.yaml
-
-         kubectl apply -f mysql.yaml
-         
-         kubectl apply -f server.yaml
-
-          
-
-
-         
