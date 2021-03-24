@@ -17,17 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run a multi-line script
-        env: 
-          REP: 123
         run: |
           source secret.option 
           echo "RIPP=${REPO}" >> $GITHUB_ENV
-          echo "envpriv=true >> $GITHUB_ENV
           echo "GKE_CLUSTER=${GKE_CLUSTER}" >> $GITHUB_ENV
           echo "GKE_ZONE=${GKE_ZONE}" >> $GITHUB_ENV
           echo "OWENR=${OWENR}" >> $GITHUB_ENV
-          #echo "::set-env name=REP::$REPO"
-          echo "path="${OWENR}/${REPO}.git"" >> $GITHUB_ENV
           echo "TEMPLATE=${TEMPLATE}" >> $GITHUB_ENV
           
           echo txt is done 
